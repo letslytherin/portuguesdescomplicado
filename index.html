@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Português para Concursos | Método Leonardo</title>
+    
+    <!-- Google Fonts para um visual moderno -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* Cores principais */
+        :root {
+            --azul-escuro: #0f2744;
+            --azul-medio: #173d5f;
+            --dourado: #f0b90b;
+            --verde-wpp: #25D366;
+            --texto-claro: #f1f5f9;
+            --cinza-fundo: #f1f5f9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0b1e33 0%, #132d49 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px 50px;
+            border-radius: 0 0 30px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(255,215,0,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        .hero .destaque {
+            color: #f0b90b;
+        }
+
+        .hero p.subtitulo {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .bancas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .hero .banca-tag {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(5px);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9em;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Seções */
+        section {
+            margin: 50px 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 700;
+            text-align: center;
+            color: var(--azul-escuro);
+            margin-bottom: 15px;
+        }
+
+        .subtitulo-secao {
+            text-align: center;
+            color: #475569;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Cards de Diferenciais */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-bottom: 4px solid var(--azul-medio);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .card .emoji {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
+        }
+
+        /* Sobre o Autor */
+        .autor-bloco {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin: 30px 0;
+        }
+
+        .autor-foto {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: var(--azul-medio);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .autor-info p {
+            margin: 8px 0;
+            font-size: 1.1em;
+        }
+
+        .autor-info strong {
+            font-size: 1.4em;
+            color: var(--azul-escuro);
+        }
+
+        /* Tabela de Bancas */
+        .tabela-bancas {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin: 30px 0;
+        }
+
+        .tabela-bancas th {
+            background: var(--azul-escuro);
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .tabela-bancas td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .tabela-bancas tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        /* Amostras */
+        .amostras {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .amostra-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            width: 280px;
+            text-align: center;
+        }
+
+        .amostra-item img {
+            width: 100%;
+            display: block;
+            border-bottom: 3px solid var(--azul-medio);
+        }
+
+        .amostra-item p {
+            padding: 12px;
+            font-weight: 600;
+            color: var(--azul-escuro);
+        }
+
+        /* Depoimentos */
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .depoimento {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--dourado);
+            font-style: italic;
+        }
+
+        .depoimento .nome {
+            font-weight: 700;
+            font-style: normal;
+            margin-top: 15px;
+            color: var(--azul-escuro);
+        }
+
+        .depoimento .cargo {
+            font-size: 0.9em;
+            color: #64748b;
+            font-style: normal;
+        }
+
+        /* CTA Fixo no Mobile */
+        .cta-fixo {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 12px 20px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            z-index: 100;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .cta-fixo {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+            .autor-bloco {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .botao-wpp {
+            background: var(--verde-wpp);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(37,211,102,0.4);
+            transition: all 0.3s;
+            margin: 20px 0;
+        }
+
+        .botao-wpp:hover {
+            background: #1da851;
+            transform: scale(1.04);
+            box-shadow: 0 15px 30px rgba(37,211,102,0.5);
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            padding: 40px 20px;
+            font-size: 0.95em;
+        }
+
+        /* Animações suaves */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero, section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="container">
+            <h1>Português <span class="destaque">Descomplicado</span> para Concursos</h1>
+            <p class="subtitulo">O material definitivo para gabaritar português nas bancas mais temidas: FCC, Cebraspe, FGV, Vunesp e Cesgranrio.</p>
+            
+            <div class="bancas">
+                <span class="banca-tag">📘 FCC</span>
+                <span class="banca-tag">📙 Cebraspe</span>
+                <span class="banca-tag">📗 FGV</span>
+                <span class="banca-tag">📕 Vunesp</span>
+                <span class="banca-tag">📓 Cesgranrio</span>
+            </div>
+
+            <!-- CTA Principal -->
+            <a href="https://wa.me/55SEU_NUMERO?text=Ol%C3%A1%20Leonardo!%20Tenho%20interesse%20no%20material%20de%20Portugu%C3%AAs%20para%20concursos.%20Pode%20me%20explicar%20melhor%3F" 
+               class="botao-wpp" 
+               target="_blank">
+                💬 Quero Gabaritar Português
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Seção do Autor -->
+        <section>
+            <div class="autor-bloco">
+                <div class="autor-foto">🧑‍🎓</div>
+                <div class="autor-info">
+                    <strong>Leonardo</strong>
+                    <p>🎯 Concurseiro da área da Saúde, aprovado em mais de 3 concursos públicos.</p>
+                    <p>📚 Especialista em língua portuguesa para provas, com foco total no que cada banca realmente cobra.</p>
+                    <p>💡 "Eu sei exatamente o que você precisa para dominar a disciplina mais decisiva do certame."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- O que tem no material -->
+        <section>
+            <h2>O que você vai encontrar</h2>
+            <p class="subtitulo-secao">Um arsenal de ferramentas que te leva do básico ao avançado em tempo recorde.</p>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="emoji">📖</div>
+                    <h3>Teoria Enxuta</h3>
+                    <p>Conteúdo direto ao ponto, sem enrolação. Só o que cai na prova.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">📝</div>
+                    <h3>Resumos Estratégicos</h3>
+                    <p>Mapas mentais e esquemas para revisão de última hora.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">🧠</div>
+                    <h3>Macetes & Técnicas</h3>
+                    <p>Bizus que os aprovados usam para nunca mais errar questões.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">🎯</div>
+                    <h3>Perfil de Cada Banca</h3>
+                    <p>Como FCC, Cebraspe, FGV e outras amam cobrar interpretação, gramática e discurso.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">✍️</div>
+                    <h3>Redação Nota 10</h3>
+                    <p>Estrutura, repertório e os segredos dos corretores das principais bancas.</p>
+                </div>
+                <div class="card">
+                    <div class="emoji">📊</div>
+                    <h3>Análise do Discurso</h3>
+                    <p>O que realmente é cobrado nas provas de interpretação avançada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Análise por Banca -->
+        <section>
+            <h2>Abordagem Tática por Banca</h2>
+            <p class="subtitulo-secao">Cada banca tem suas manias. Nosso material te ensina a dançar conforme a música.</p>
+            
+            <table class="tabela-bancas">
+                <thead>
+                    <tr>
+                        <th>Banca</th>
+                        <th>Foco do Material</th>
+                        <th>Diferencial</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge">FCC</span></td>
+                        <td>Interpretação de textos longos, gramática normativa e redação oficial</td>
+                        <td>Macetes para questões literais e decoreba</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">Cebraspe</span></td>
+                        <td>Certo/Errado, semântica e reescritura de frases</td>
+                        <td>Técnica de eliminação de erros sutis</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">FGV</span></td>
+                        <td>Interpretação profunda, ambiguidade, linguística textual</td>
+                        <td>Resumos visuais e análise de discurso</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">Vunesp</span></td>
+                        <td>Gramática contextualizada e literatura</td>
+                        <td>Questões inéditas comentadas</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge">Cesgranrio</span></td>
+                        <td>Coesão, coerência e tipologia textual</td>
+                        <td>Tabelas de conectivos e armadilhas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Amostras do Material (substitua as imagens) -->
+        <section>
+            <h2>Uma prévia do que te espera</h2>
+            <p class="subtitulo-secao">Toque para ampliar (coloque aqui imagens reais do PDF ou da apostila).</p>
+            <div class="amostras">
+                <div class="amostra-item">
+                    <img src="https://via.placeholder.com/300x200/0f2744/ffffff?text=Resumo+FCC" alt="Amostra resumo FCC">
+                    <p>Resumo de Português FCC</p>
+                </div>
+                <div class="amostra-item">
+                    <img src="https://via.placeholder.com/300x200/173d5f/ffffff?text=Mapa+Mental+Cebraspe" alt="Mapa mental Cebraspe">
+                    <p>Mapa Mental Cebraspe</p>
+                </div>
+                <div class="amostra-item">
+                    <img src="https://via.placeholder.com/300x200/0f2744/ffffff?text=T%C3%A9cnicas+FGV" alt="Técnicas FGV">
+                    <p>Técnicas exclusivas FGV</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section>
+            <h2>Resultados reais</h2>
+            <div class="depoimentos-grid">
+                <div class="depoimento">
+                    "O material do Leo transformou minha relação com português. Sempre odiei interpretação, mas com as dicas dele fechei a prova da FGV."
+                    <div class="nome">Marina S.</div>
+                    <div class="cargo">Aprovada em 1º lugar - TRT</div>
+                </div>
+                <div class="depoimento">
+                    "A análise por banca é um diferencial absurdo. Eu não fazia ideia que a FCC cobrava interpretação tão diferente do Cebraspe. Valeu cada centavo."
+                    <div class="nome">Carlos E.</div>
+                    <div class="cargo">Aprovado na Polícia Federal</div>
+                </div>
+                <div class="depoimento">
+                    "Estudei por 4 meses com o material e acertei 95% das questões de português no INSS. Os macetes são ouro!"
+                    <div class="nome">Ana P.</div>
+                    <div class="cargo">Aprovada INSS</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Última chamada -->
+        <section style="text-align: center;">
+            <h2>Pronto para dominar o português?</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">Fale comigo agora e garanta seu material com condições especiais de lançamento.</p>
+            <a href="https://wa.me/55SEU_NUMERO?text=Ol%C3%A1%20Leonardo!%20Quero%20saber%20mais%20sobre%20o%20material%20de%20Portugu%C3%AAs%20para%20concursos." 
+               class="botao-wpp" 
+               target="_blank">
+                🚀 Quero Aproveitar a Oferta
+            </a>
+        </section>
+
+    </div>
+
+    <!-- CTA fixo no mobile -->
+    <div class="cta-fixo">
+        <a href="https://wa.me/55SEU_NUMERO?text=Ol%C3%A1%20Leonardo!%20Tenho%20interesse%20no%20material%20de%20portugu%C3%AAs." 
+           class="botao-wpp" 
+           style="width: 100%; justify-content: center;"
+           target="_blank">
+            💬 Comprar Agora pelo WhatsApp
+        </a>
+    </div>
+
+    <footer>
+        © 2026 Leonardo – Método Português para Concursos. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>
